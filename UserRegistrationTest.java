@@ -1,3 +1,4 @@
+
 package com.bl.junituserregistration;
 
 import org.junit.Test;
@@ -107,9 +108,9 @@ public class UserRegistrationTest {
 		Assertions.assertFalse(result);
 	}
 
-	  @Test
-	    public void password_ShouldMinOf8Digit_WithOneUpperCase_NumericNum_ReturnTrue() {
-	        boolean result = userRegistration.ValidatePassword("Zlatan123");
+	 @Test
+	    public void givenPassword_ShouldMinWith_8Digit_OneUpperCase_NumericNum_SplCharacter_ReturnTrue() {
+	        boolean result = userRegistration.ValidatePassword("Zlatan@123");
 	        Assertions.assertTrue(result);
 	    }
 
@@ -123,7 +124,13 @@ public class UserRegistrationTest {
 	    // password does not contain any uppercase and numeric Value
 	    @Test
 	    public void givenPassword_ContainsNoUpperCase_NumericNum_ReturnFalse() {
-	        boolean result = userRegistration.ValidatePassword("zlatanpsg");
+	        boolean result = userRegistration.ValidatePassword("zlatan@psg");
+	        Assertions.assertFalse(result);
+	    }
+	    // have no special Character
+	    @Test
+	    public void givenPassword_DoesNotContain_SpecialChar_ReturnFalse() {
+	        boolean result = userRegistration.ValidatePassword("Zlatan1010");
 	        Assertions.assertFalse(result);
 	    }
 	}
