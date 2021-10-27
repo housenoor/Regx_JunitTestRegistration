@@ -106,22 +106,24 @@ public class UserRegistrationTest {
 		// Asserting The Result As Boolean Type True Or False
 		Assertions.assertFalse(result);
 	}
-	 @Test
-	    public void givenPassword_ShouldMinOf8Digit_WithOneUpperCase_ReturnTrue() {
-	        boolean result = userRegistration.ValidatePassword("Zlatanparis");
+
+	  @Test
+	    public void password_ShouldMinOf8Digit_WithOneUpperCase_NumericNum_ReturnTrue() {
+	        boolean result = userRegistration.ValidatePassword("Zlatan123");
 	        Assertions.assertTrue(result);
 	    }
-	    //Does Not Fulfill The Criteria
 
+	    //testcase for Password LessThan 8 characters
 	    @Test
-	    public void givenPassword_DoesNotContain_Min8Digits_ReturnFalse()  {
-	        boolean result = userRegistration.ValidatePassword("zlatan");
+	    public void givenPassword_DoesNotContain_Min8Digits_ReturnFalse() {
+	        boolean result = userRegistration.ValidatePassword("zlata1");
 	        Assertions.assertFalse(result);
 	    }
-	    // password does not contain any uppercase
+
+	    // password does not contain any uppercase and numeric Value
 	    @Test
-	    public void givenPassword_ContainsNoUpperCase_ReturnFalse() {
+	    public void givenPassword_ContainsNoUpperCase_NumericNum_ReturnFalse() {
 	        boolean result = userRegistration.ValidatePassword("zlatanpsg");
 	        Assertions.assertFalse(result);
 	    }
-}
+	}
